@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+/.svelte-kit
+/build
+/prebuild
+/helm
+/scripts
+/src-tauri
+.env
+.env.example
+.electron.cjs
+.electron.dev.cjs
+README.md

@@ -1,0 +1,10 @@
+apiVersion: v2
+name: fund-parents-app
+description: fund-parents-app ui
+type: application
+version: 0.1.0
+appVersion: latest
+dependencies:
+- name: postgresql
+  version: 11.7.1
+  repository: https://charts.bitnami.com/bitnami

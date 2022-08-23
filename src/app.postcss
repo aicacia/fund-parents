@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html,
+	body {
+		@apply w-full h-full;
+	}
+
+	h1 {
+		@apply text-5xl;
+	}
+	h2 {
+		@apply text-4xl;
+	}
+	h3 {
+		@apply text-3xl;
+	}
+	h4 {
+		@apply text-2xl;
+	}
+	h5 {
+		@apply text-xl;
+	}
+	h6 {
+		@apply text-lg;
+	}
+
+	input {
+		@apply px-3 py-2 text-black bg-gray-100 focus:bg-white text-sm border outline-none focus:outline-none w-full;
+	}
+	input[disabled] {
+		@apply opacity-50;
+	}
+	input[type='checkbox'] {
+		@apply ml-0 mr-4 my-3 text-black;
+	}
+	input.valid {
+		@apply border-green-500;
+	}
+	input.invalid {
+		@apply border-red-500;
+	}
+	input.warning {
+		@apply border-yellow-500;
+	}
+
+	textarea {
+		@apply px-3 py-2 text-black resize-y bg-gray-100 focus:bg-white text-sm border outline-none focus:outline-none w-full;
+	}
+	textarea[disabled] {
+		@apply opacity-50;
+	}
+	textarea.valid {
+		@apply border-green-500;
+	}
+	textarea.invalid {
+		@apply border-red-500;
+	}
+	textarea.warning {
+		@apply border-yellow-500;
+	}
+}
+
+@layer components {
+	.btn {
+		@apply text-base no-underline px-3 py-2 text-center font-bold outline-none focus:outline-none ease-linear transition-all duration-150 cursor-pointer;
+	}
+	.btn.primary {
+		@apply bg-black text-white active:bg-gray-900;
+	}
+	.btn.ghost {
+		@apply text-white active:bg-gray-100;
+	}
+	.btn.secondary {
+		@apply bg-white text-black active:bg-gray-100;
+	}
+	.btn.danger {
+		@apply bg-red-500 text-white active:bg-red-600;
+	}
+	.btn[disabled] {
+		@apply bg-opacity-50 cursor-not-allowed;
+	}
+
+	.invalid-feedback {
+		@apply text-red-500;
+	}
+	.warning-feedback {
+		@apply text-yellow-500;
+	}
+}
