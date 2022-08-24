@@ -49,6 +49,10 @@ export const userWritable = writable<IUser | null>(null);
 export const user = derived(userWritable, (user) => user);
 export const signedIn = derived(user, (user) => user !== null);
 
+export function isSignedIn() {
+	return get(signedIn);
+}
+
 export async function signIn() {
 	const res = await fetch(`${base}/api/user`);
 	if (!res.ok) {

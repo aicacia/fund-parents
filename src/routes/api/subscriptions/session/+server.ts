@@ -22,8 +22,8 @@ export const GET: RequestHandler = authenticated(async (event) => {
 				quantity: 1
 			}
 		],
-		success_url: `${process.env.BASE_URL}/subscription/success?session_id={CHECKOUT_SESSION_ID}`,
-		cancel_url: `${process.env.BASE_URL}/subscription/canceled`
+		success_url: `${process.env.BASE_URL}/api/subscriptions/success?session_id={CHECKOUT_SESSION_ID}`,
+		cancel_url: `${process.env.BASE_URL}/api/subscriptions/canceled`
 	});
 
 	return new Response(JSON.stringify(session.url), {

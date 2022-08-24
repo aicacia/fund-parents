@@ -31,7 +31,10 @@ export const PATCH: RequestHandler = authenticated(async (event) => {
 	const data = await event.request.json();
 	return run((client) =>
 		client.user.update({
-			data,
+			data: {
+				...data,
+				confirmed: true
+			},
 			where: {
 				id: event.locals.token?.userId
 			}

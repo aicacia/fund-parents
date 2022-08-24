@@ -1,8 +1,7 @@
-import { error } from '@sveltejs/kit';
+import { authGuard } from '../authGuard';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
-	if (!event.locals.user) {
-		throw error(401);
-	}
+	await authGuard(event.url);
+	return {};
 };

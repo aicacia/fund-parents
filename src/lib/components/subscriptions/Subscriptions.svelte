@@ -1,6 +1,7 @@
 <svelte:options immutable />
 
 <script lang="ts">
+	import { createNotification, NotificationType } from '$lib/state/notifications';
 	import { cancelSubscription, createSubscription } from '$lib/state/user';
 	import { formatCurrency } from '$lib/util';
 	import type Stripe from 'stripe';
@@ -8,6 +9,15 @@
 	import Modal from '../ui/Modal.svelte';
 
 	export let subscriptions: Stripe.Subscription[];
+	export let cancelled: boolean | undefined = undefined;
+	export let success: boolean | undefined = undefined;
+
+	$: if (cancelled) {
+		createNotification('Cancelled subscription creation process', NotificationType.Error);
+	}
+	$: if (success) {
+		createNotification('Successfully subscribed!', NotificationType.Success);
+	}
 
 	let subscribing = false;
 	async function onSubscribe() {
@@ -67,11 +77,13 @@
 			</li>
 		{/each}
 	</ul>
-	<button class="btn primary inline-flex mt-8" on:click={onSubscribe} disabled={subscribing}
-		>Subscribe{#if subscribing}<span class="w-5 h-5 inline-block ml-2 text-white self-center"
-				><Spinner /></span
-			>{/if}</button
-	>
+	<div class="flex justify-end">
+		<button class="btn primary inline-flex mt-8" on:click={onSubscribe} disabled={subscribing}
+			>Subscribe{#if subscribing}<span class="w-5 h-5 inline-block ml-2 text-white self-center"
+					><Spinner /></span
+				>{/if}</button
+		>
+	</div>
 </div>
 
 <Modal bind:open={cancelOpen} onClose={onCloseCancel}>

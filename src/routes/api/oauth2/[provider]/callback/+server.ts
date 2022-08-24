@@ -23,7 +23,7 @@ export const GET: RequestHandler = async (event) => {
 		const token = await encode({ userId: user.id });
 
 		event.setHeaders({
-			'Set-Cookie': `token=${token}; path=/; SameSite=Strict; Secure; expires=${new Date(
+			'Set-Cookie': `token=${token}; path=/; SameSite=Lax; Secure; expires=${new Date(
 				Date.now() + 1000 * 60 * 60 * 24 * 365
 			).toUTCString()}`,
 			Location: (state as any)['redirect'] || '/'

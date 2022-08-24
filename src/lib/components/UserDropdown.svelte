@@ -29,7 +29,7 @@
 			>
 		</li>
 		<li>
-			<a role="button" class="px-4 py-2 block hover:bg-gray-100" href={`${base}/subscription`}
+			<a role="button" class="px-4 py-2 block hover:bg-gray-100" href={`${base}/subscriptions`}
 				>Subscriptions</a
 			>
 		</li>
